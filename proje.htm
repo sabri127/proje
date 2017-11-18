@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>ÜRÜN SATIŞ PORTALI</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777777;
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;      
+      font-size: 20px;
+      color: #EE0D0D;
+  }
+  .container {
+      padding: 80px 120px;
+  }
+  .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%); /* make all photos black and white */ 
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+  }
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 400px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+  }  
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  footer {
+      background-color: #2d2d30;
+      color: #f5f5f5;
+      padding: 32px;
+  }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }  
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">ÜRÜN SATIŞ PORTALI</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">ANASAYFA</a></li>
+        <li><a href="#band">ÜRÜNLERİMİZ</a></li>
+        <li><a href="#tour">SATIN ALMA</a></li>
+        <li><a href="#contact">İLETİŞİM</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">AYARLAR
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Kulanıcı Girişi</a></li>
+            <li><a href="#">Bilgilerin</a></li>
+            <li><a href="#">Sepet</a></li> 
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\tkn.jpeg" alt="New York" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>İnsan ve Teknoloji</h3>
+          <p>Teknoloji artık insanlığın vazgeçilmezi oldu!</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\tnj.jpg" alt="Chicago" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>Programcılık ve Türkiye</h3>
+          <p>Ülkemizin Programcılıkda geldiği nokta nedir?</p>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\arb.jpg" alt="Los Angeles" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>Araba Teknolojileri</h3>
+          <p>Arabada ulaşılan teknoloji göz kamaştırıyor.</p>
+        </div>      
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<div id="band" class="container text-center">
+  <h3>ÜRÜNLERİMİZ</h3>
+  <p><em>KALİTE BİZDEN SORULUR!</em></p>
+  <p>Bu satış portalında güncel ürünler ve küresel piyasada kendini kanıtlamış tüm markalardan ürünlere ulaşabilirsiniz.Sahip olduğumuz tüm ürünlerde dünya markaları ile işbirliği içindeyiz.Ürünlerimizde oluşacak tüm sorunlarda garanti kapsamında değerlendirmeler yapmaktayız.</p>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Apple</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\iph.jpg" class="img-circle person" alt="Random Name" width="285" height="285">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Guitarist and Lead Vocalist</p>
+        <p>Loves long walks on the beach</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>LG</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\lg.jpg" class="img-circle person" alt="Random Name" width="285" height="285">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Guitarist and Lead Vocalist</p>
+        <p>Loves long walks on the beach</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Nokia</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\nk.jpg" class="img-circle person" alt="Random Name" width="285" height="285">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Guitarist and Lead Vocalist</p>
+        <p>Loves long walks on the beach</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>HTC</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\htc.jpg" class="img-circle person" alt="Random Name" width="285" height="285">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Guitarist and Lead Vocalist</p>
+        <p>Loves long walks on the beach</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Samsung</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\sams.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="demo2" class="collapse">
+        <p>Drummer</p>
+        <p>Loves drummin'</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Sony</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\son.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="demo3" class="collapse">
+        <p>Bass player</p>
+        <p>Loves math</p>
+        <p>Member since 2005</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tour" class="bg-1">
+  <div class="container">
+    <h3 class="text-center">SATIN ALMA</h3>
+    <p class="text-center">SATIN ALMA İŞLEMİNİ AŞAĞIDAN YAPINIZ.<br> İNDİRİM GÜNLERİMİZ</p>
+    <ul class="list-group">
+      <li class="list-group-item">PAZARTESİ <span class="label label-danger">SÜPER FIRSAT</span></li>
+      <li class="list-group-item">ÇARŞAMBA <span class="label label-danger">SÜPER FIRSAT</span></li> 
+      <li class="list-group-item">CUMA <span class="badge">HER AYIN İLK HAFTASI</span></li> 
+    </ul>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\p8.jpg" alt="Telefon" width="400" height="300">
+          <p><strong>Bedava</strong></p>
+          <p>iPhone 8 64GB Space Gray Akıllı Telefon</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">SATIN AL</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\s8.jpg" alt="New York" width="400" height="300">
+          <p><strong>0 Euro</strong></p>
+          <p>Samsung Galaxy Note 8 64GB</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">SATIN AL</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\sny.jpg" alt="San Francisco" width="400" height="300">
+          <p><strong>0 TL</strong></p>
+          <p>Sony 72 inch led tv</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">SATIN AL</button>
+        </div>
+      </div>
+    <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\lgl.jpg" alt="Paris" width="400" height="300">
+        <p><strong>0 TL</strong></p>
+        <p>LG gram 13.3” Ultra-Lightweight Laptop </p>
+        <button class="btn" data-toggle="modal" data-target="#myModal">SATIN AL</button>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\hh.jpg" alt="New York" width="400" height="300">
+        <p><strong>0 Euro</strong></p>
+        <p>Htc Desire L Price </p>
+        <button class="btn" data-toggle="modal" data-target="#myModal">SATIN AL</button>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="C:\Users\Hp\Desktop\SABRİ DERS-PROJELER\proje\Yeni klasör\image\nkn.jpg" alt="San Francisco" width="400" height="300">
+        <p><strong>3,5 TL</strong></p>
+        <p>Nikon COOLPIX W100</p>
+        <button class="btn" data-toggle="modal" data-target="#myModal">SATIN AL</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Satın al</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Kaç tane istersiniz</label>
+              <input type="number" class="form-control" id="psw" placeholder="sayı değeri giriniz">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>E-mail ile satın al</label>
+              <input type="text" class="form-control" id="usrname" placeholder="E-mail">
+            </div>
+              <button type="submit" class="btn btn-block">Onayla
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> İptal et
+          </button>
+          <p> > <a href="#">Yardım?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="contact" class="container">
+  <h3 class="text-center">İLETİŞİM</h3>
+  <p class="text-center"><em>BİZE ULAŞIN.</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>ÜRÜN SATIŞ PORTALI</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>ANTALYA</p>
+      <p><span class="glyphicon glyphicon-phone"></span>TEL: 05396512763</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: SABRİ12763@Gmail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Adınız" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Mesajınız" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">MESAJI İLET</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3 class="text-center">HAKKIMIZDA</h3>  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">MİSYONNUMUZ</a></li>
+    <li><a data-toggle="tab" href="#menu1">VİZYONUMUZ</a></li>
+    <li><a data-toggle="tab" href="#menu2">NEDEN BİZ?</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2>Misyonumuz nedir?</h2>
+      <p>Güncel Dijital Teknoloji Ürünleri olarak bizler hızlı devamlı ve tutarlı olmanın kaliteli ürün ve hizmetleri düşük maliyet ile rekabetçi pazara sunmanın önemli olduğunun bilincindeyiz. 2008 yılından beri sunmuş olduğumuz teknik servis hizmeti ile müşterileri her zaman memnun ederek firmamız bu konudaki deneyimi ve üstün başarıları ile gurur duymaktadır.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h2>Vizyonumuz nedir?</h2>
+      <p>Kurumsal firmalarla ve Zincir Marketlerle yapmış olduğumuz anlaşmalar neticesinde, ürünlerimizin kalitesi ve Teknik Destek konusunda bizi tercih etmeleri sektörde firmamızı öncelikli kılmaktadır. Şirketimiz duyulan bu güvenleri boşa çıkarmamakla birlikte daha çok müşteri memnuniyetine önem vererek firmamızı daha ileri taşımak adına uzman kadrosuyla çalışmalarına devam etmektedir. Önümüzdeki zaman dilimi içerisinde birçok kurumsal firmanın tedarikçisi olarak sizlere hizmet vermekten gurur duyarız.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h2>Neden mi biz?</h2>
+      <p>2008 yılında kurulan firmamız ilk olarak şirketimize ait TİGRA markası adı altında çift hatlı telefon modellerinin ithalatı ve pazarlaması alanında GSM teknolojisinin Türkiye'de gelişmesi ile iletişim dünyasına kapılarını açmıştır. Yapmış olduğumuz ithalatlarda kalite ve müşteri memnuniyeti en üst seviyededir.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="ANASAYFA">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>SABRİ ÇAĞLAR 20171121050 <a href="Sabri12763@gmail.com" data-toggle="tooltip"
+     title="ÜRÜN SATIŞ PORTALI">Sabri12763@gmail.com</a></p> 
+</footer>
+
+<script>
+$(document).ready(function(){
+ 
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
+</html>
